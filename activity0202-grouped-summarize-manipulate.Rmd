@@ -68,11 +68,26 @@ geom_histogram(binwidth = .5)
 
 ### Exercise 5
 
-...
+```{r select}
+my_gm %>%
+  select(country, continent)
+```
+
+```{r distinct}
+my_gm %>%
+  group_by(continent) %>%
+  summarise(n_countries = n_distinct(country))
+```
 
 ### Exercise 6
 
-...
+``` {r six}
+my_gm %>%
+  filter(continent == 'Asia') %>%
+  group_by(year, country) %>%
+  summarise_at(vars(lifeExp), funs(min, max))
+```
+
 
 ### Exercise 7
 
