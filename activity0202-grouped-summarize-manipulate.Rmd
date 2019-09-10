@@ -33,11 +33,33 @@ library(gapminder)
 | GPD per capita|Measured in US$, inflation-adjusted|
 ### Exercise 2
 
+
+```{r gdp-new-var, message=FALSE}
+my_gm %>% 
+  mutate((gdp = pop * gdpPercap),( gdpBillion = round(gdp/1000000000,2)))
+```
+
 (Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget 
 to label your code chunk. Do not use spaces in code chunk labels.)
 
 ### Exercise 3
 
+``` {r, unnamed-chunk, message=FALSE}
+us_tib <-  my_gm %>%
+  filter(country == "United States")
+## This is a semi-dangerous way to do this variable
+## I'd prefer to join on year, but we haven't covered joins yet (Activity 2.4)
+my_gm <-  my_gm %>%
+  mutate(tmp = rep(us_tib$gdpPercap, nlevels(country)),
+         gdpPercapRel = gdpPercap / tmp,
+         tmp = NULL)
+```
+
+```{r, caca}
+my_gm %>% 
+  filter(country == "United States") %>% 
+  select(country, year, gdpPercapRel)
+```
 (Type your answer to Exercise 3 here. Add code chunks as needed. Don't forget 
 to label your code chunk. Do not use spaces in code chunk labels.)
 
