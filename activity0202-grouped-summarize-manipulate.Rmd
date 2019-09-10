@@ -1,7 +1,7 @@
 ---
 title: "Activity 2.2 - Exploratory Data Analysis: Grouped Summarizing and Manipulating"
-author: "INSERT TEAM NAME HERE"
-date: "INSERT TODAY'S DATE HERE"
+author: Purple
+date: 09/10/2019
 output: 
   html_document: 
     keep_md: yes
