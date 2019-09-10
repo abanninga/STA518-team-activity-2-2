@@ -32,6 +32,12 @@ library(gapminder)
 | Pop           |The population|
 | GPD per capita|Measured in US$, inflation-adjusted|
 ### Exercise 2
+```{r}
+my_gm %>% 
+  mutate((gdp = pop * gdpPercap), gdpBillion = round(gdp/1000000000,2))
+
+```
+
 
 (Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget 
 to label your code chunk. Do not use spaces in code chunk labels.)
