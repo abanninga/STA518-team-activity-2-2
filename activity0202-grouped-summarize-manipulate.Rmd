@@ -55,9 +55,14 @@ my_gm %>%
 
 
 
-Creates a dataset filtered by country (specifically, United States), calculates the GPD per capita for the United States, and subsequently calculates the relative GPD per Capita per year.
+Creates a dataset filtered by country (specifically, United States), calculates the GPD per capita for the United States, and subsequently calculates the GPD per Capita per year relative to the United States.
 
 ### Exercise 4
+```{r}
+ggplot(data = my_gm, mapping = aes(x = gdpPercapRel)) +
+  geom_histogram()
+geom_histogram(binwidth = .5)
+```
 
 ...
 
