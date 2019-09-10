@@ -1,0 +1,61 @@
+---
+title: "Activity 2.2 - Exploratory Data Analysis: Grouped Summarizing and Manipulating"
+author: "INSERT TEAM NAME HERE"
+date: "INSERT TODAY'S DATE HERE"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+### Load packages
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(gapminder)
+```
+
+### Load data
+
+```{r load-data, message=FALSE}
+(my_gm <- gapminder)
+```
+
+
+### Exercise 1
+
+(Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget 
+to label your code chunk. Do not use spaces in code chunk labels.)
+
+### Exercise 2
+
+(Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget 
+to label your code chunk. Do not use spaces in code chunk labels.)
+
+### Exercise 3
+
+(Type your answer to Exercise 3 here. Add code chunks as needed. Don't forget 
+to label your code chunk. Do not use spaces in code chunk labels.)
+
+### Exercise 4
+
+...
+
+### Exercise 5
+
+...
+
+### Exercise 6
+
+...
+
+### Exercise 7
+
+...
+
+### Exercise 8
+
+...
+
+### Exercise 9
+
+...
