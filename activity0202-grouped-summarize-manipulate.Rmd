@@ -27,8 +27,8 @@ library(gapminder)
 | ------------- |:-------------:| 
 | Country       |Country of origin|
 | Continent     |Continent country is in|
-| Year          |ranges from 1952 to 2007 in increments of 5 years|
-| lifeExp       |life expectancy at birth, in years|
+| Year          |Ranges from 1952 to 2007 in increments of 5 years|
+| lifeExp       |Life expectancy at birth, in years|
 | Pop           |The population|
 | GPD per capita|Measured in US$, inflation-adjusted|
 ### Exercise 2
