@@ -23,9 +23,14 @@ library(gapminder)
 
 ### Exercise 1
 
-(Type your answer to Exercise 1 here. Add code chunks as needed. Don't forget 
-to label your code chunk. Do not use spaces in code chunk labels.)
-
+| Variable      |Description    |
+| ------------- |:-------------:| 
+| Country       |Country of origin|
+| Continent     |Continent country is in|
+| Year          |ranges from 1952 to 2007 in increments of 5 years|
+| lifeExp       |life expectancy at birth, in years|
+| Pop           |The population|
+| GPD per capita|Measured in US$, inflation-adjusted|
 ### Exercise 2
 
 (Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget 
