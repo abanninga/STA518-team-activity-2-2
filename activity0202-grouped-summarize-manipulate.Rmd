@@ -27,12 +27,11 @@ library(gapminder)
 | ------------- |:-------------:| 
 | Country       |Country of origin|
 | Continent     |Continent country is in|
-| Year          |ranges from 1952 to 2007 in increments of 5 years|
-| lifeExp       |life expectancy at birth, in years|
+| Year          |Ranges from 1952 to 2007 in increments of 5 years|
+| lifeExp       |Life expectancy at birth, in years|
 | Pop           |The population|
 | GPD per capita|Measured in US$, inflation-adjusted|
 ### Exercise 2
-
 
 ```{r gdp-new-var, message=FALSE}
 my_gm %>% 
@@ -42,9 +41,11 @@ my_gm %>%
 (Type your answer to Exercise 2 here. Add code chunks as needed. Don't forget 
 to label your code chunk. Do not use spaces in code chunk labels.)
 
+=======
+```
 ### Exercise 3
 
-``` {r, unnamed-chunk, message=FALSE}
+```{r create-gdprel, }
 us_tib <-  my_gm %>%
   filter(country == "United States")
 ## This is a semi-dangerous way to do this variable
@@ -53,34 +54,80 @@ my_gm <-  my_gm %>%
   mutate(tmp = rep(us_tib$gdpPercap, nlevels(country)),
          gdpPercapRel = gdpPercap / tmp,
          tmp = NULL)
-```
 
-```{r, caca}
 my_gm %>% 
   filter(country == "United States") %>% 
   select(country, year, gdpPercapRel)
 ```
-(Type your answer to Exercise 3 here. Add code chunks as needed. Don't forget 
-to label your code chunk. Do not use spaces in code chunk labels.)
+
+
+
+
+Creates a dataset filtered by country (specifically, United States), calculates the GPD per capita for the United States, and subsequently calculates the GPD per Capita per year relative to the United States.
 
 ### Exercise 4
+```{r}
+ggplot(data = my_gm, mapping = aes(x = gdpPercapRel)) +
+  geom_histogram()
+geom_histogram(binwidth = .5)
+```
 
 ...
-
 ### Exercise 5
 
+```{r select}
+my_gm %>%
+  select(country, continent)
+```
+
+```{r distinct}
+
+my_gm %>%
+
+  group_by(continent) %>%
+
+  summarise(n_countries = n_distinct(country))
+
+```
 ...
 
 ### Exercise 6
-
+Which one the right one????
+```{r min-max}
+my_gm %>%
+filter(continent =="Asia") %>%
+group_by(country, year) %>%
+summarize_at(vars(lifeExp), funs(min, max))
+```
+```{r min-max1}
+my_gm %>%
+filter(continent =="Asia") %>%
+group_by(year) %>%
+summarize_at(vars(lifeExp), funs(min, max))
+```
 ...
 
 ### Exercise 7
-
+```{r lifeExp-growth, message=FALSE}
+my_gm %>% 
+  group_by(country) %>% 
+  select(country, year, lifeExp) %>% 
+  mutate(lifeExp_gain = lifeExp - first(lifeExp)) %>% 
+  filter(year == 1972)
+```
 ...
 
 ### Exercise 8
-
+```{r j}
+my_gm %>%
+  filter(continent == "Asia") %>%
+  select(year, country, lifeExp) %>%
+  group_by(year) %>%
+  filter(min_rank(desc(lifeExp)) < 2 | min_rank(lifeExp) < 2) %>% 
+  arrange(year) %>%
+  print(n = Inf)
+```
+The second filter statement shows only the maximum and the minimum country. We can also notice that the life expectancy has been increasing for the 'minimum' country as well as the 'maximum' country. I think that the output is presented in a satisfying way. 
 ...
 
 ### Exercise 9
