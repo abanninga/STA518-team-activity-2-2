@@ -81,15 +81,10 @@ my_gm %>%
 ```
 
 ```{r distinct}
-
 my_gm %>%
-
   group_by(continent) %>%
-
   summarise(n_countries = n_distinct(country))
-
 ```
-...
 
 ### Exercise 6
 Which one the right one????
@@ -105,7 +100,7 @@ filter(continent =="Asia") %>%
 group_by(year) %>%
 summarize_at(vars(lifeExp), funs(min, max))
 ```
-...
+
 
 ### Exercise 7
 ```{r lifeExp-growth, message=FALSE}
