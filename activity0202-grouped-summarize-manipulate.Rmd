@@ -42,7 +42,6 @@ my_gm %>%
 to label your code chunk. Do not use spaces in code chunk labels.)
 
 =======
-```
 ### Exercise 3
 
 ```{r create-gdprel, }
@@ -103,7 +102,7 @@ summarize_at(vars(lifeExp), funs(min, max))
 
 
 ### Exercise 7
-```{r lifeExp-growth, message=FALSE}
+```{r lifeExp-growth}
 my_gm %>% 
   group_by(country) %>% 
   select(country, year, lifeExp) %>% 
@@ -127,4 +126,11 @@ The second filter statement shows only the maximum and the minimum country. We c
 
 ### Exercise 9
 
-...
+``` {r nine}
+my_gm %>%
+  mutate(lifeexpchange = lifeExp - lag(lifeExp)) %>%
+  select(country, year, lifeexpchange) %>%
+  arrange(lifeexpchange) %>%
+  filter(year > 1953) %>%
+  head(5)
+```
